@@ -286,20 +286,20 @@ res_miRNA_sex_noutlier <- res_miRNA_sex_noutlier[order(res_miRNA_sex_noutlier$pa
 ########### Save results ###########
 dir.create(file.path(cidr,"data_output"),recursive = T)
 # -> smallRNA
-write_xlsx(as.data.frame(res_smallRNA),"data_output/DE_smallRNA.xlsx")
-write_xlsx(as.data.frame(res_smallRNA_sex),"data_output/DE_smallRNA_sex.xlsx")
-write_xlsx(as.data.frame(res_smallRNA_noutlier),"data_output/DE_smallRNA_noOutlier.xlsx")
-write_xlsx(as.data.frame(res_smallRNA_sex_noutlier),"data_output/DE_smallRNA_sex_noOutlier.xlsx")
-write_xlsx(as.data.frame(res_smallRNA_female),"data_output/DE_smallRNA_female.xlsx")
-write_xlsx(as.data.frame(res_smallRNA_male),"data_output/DE_smallRNA_male.xlsx")
+write_xlsx(data.frame(smallRNA = row.names(res_smallRNA),res_smallRNA),"data_output/DE_smallRNA.xlsx")
+write_xlsx(data.frame(smallRNA = row.names(res_smallRNA_sex),res_smallRNA_sex),"data_output/DE_smallRNA_sex.xlsx")
+write_xlsx(data.frame(smallRNA = row.names(res_smallRNA_noutlier),res_smallRNA_noutlier),"data_output/DE_smallRNA_noOutlier.xlsx")
+write_xlsx(data.frame(smallRNA = row.names(res_smallRNA_sex_noutlier),res_smallRNA_sex_noutlier),"data_output/DE_smallRNA_sex_noOutlier.xlsx")
+write_xlsx(data.frame(smallRNA = row.names(res_smallRNA_male),res_smallRNA_male),"data_output/DE_smallRNA_female.xlsx")
+write_xlsx(data.frame(smallRNA = row.names(res_smallRNA_female),res_smallRNA_female),"data_output/DE_smallRNA_male.xlsx")
 
 # -> miRNA
-write_xlsx(as.data.frame(res_miRNA),"data_output/DE_miRNA.xlsx")
-write_xlsx(as.data.frame(res_miRNA_sex),"data_output/DE_miRNA_sex.xlsx")
-write_xlsx(as.data.frame(res_miRNA_noutlier),"data_output/DE_miRNA_noOutlier.xlsx")
-write_xlsx(as.data.frame(res_miRNA_sex_noutlier),"data_output/DE_miRNA_sex_noOutlier.xlsx")
-write_xlsx(as.data.frame(res_miRNA_female),"data_output/DE_miRNA_female.xlsx")
-write_xlsx(as.data.frame(res_miRNA_male),"data_output/DE_miRNA_male.xlsx")
+write_xlsx(data.frame(miRNA = row.names(res_miRNA),res_miRNA),"data_output/DE_miRNA.xlsx")
+write_xlsx(data.frame(miRNA = row.names(res_miRNA_sex),res_miRNA_sex),"data_output/DE_miRNA_sex.xlsx")
+write_xlsx(data.frame(miRNA = row.names(res_miRNA_noutlier),res_miRNA_noutlier),"data_output/DE_miRNA_noOutlier.xlsx")
+write_xlsx(data.frame(miRNA = row.names(res_miRNA_sex_noutlier),res_miRNA_sex_noutlier),"data_output/DE_miRNA_sex_noOutlier.xlsx")
+write_xlsx(data.frame(miRNA = row.names(res_miRNA_female),res_miRNA_female),"data_output/DE_miRNA_female.xlsx")
+write_xlsx(data.frame(miRNA = row.names(res_miRNA_male),res_miRNA_male),"data_output/DE_miRNA_male.xlsx")
 
 ########### Visualization 3: Volcano plots ###########
 volcano_plot <- function(data_res,alpha_sig,name_title){
